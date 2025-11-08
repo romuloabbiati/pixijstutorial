@@ -1,4 +1,4 @@
-import {Application, Graphics} from 'pixi.js';
+import {Application, Graphics, Text, TextStyle} from 'pixi.js';
 
 (async() => {
   const app = new Application();
@@ -54,5 +54,29 @@ import {Application, Graphics} from 'pixi.js';
   })
 
   app.stage.addChild(star);
+
+  const style = new TextStyle({
+      fill: '#ffffff',
+      fontFamily: 'Playwrite US Trad',
+      fontSize: 72,
+      // fontStyle: 'italic',
+      // fontWeight: 'bold',
+      stroke: { color: '#4a1850', width: 5 },
+      dropShadow: {
+        color: '#4a1850',
+        blur: 4,
+        angle: Math.PI / 6,
+        distance: 6,
+      },
+      wordWrap: true,
+      wordWrapWidth: 440
+  });
+
+  const text = new Text({
+    text: 'Hello Pixi',
+    style
+  });
+
+  app.stage.addChild(text);
 
 })();
