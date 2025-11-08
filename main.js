@@ -7,11 +7,17 @@ import {
   Sprite,
 } from 'pixi.js';
 
+import { initDevtools } from '@pixi/devtools';
+
 (async () => {
   const app = new Application();
   await app.init({
     resizeTo: window,
     antialias: true,
+  });
+
+  initDevtools({
+    app,
   });
 
   app.canvas.style.position = 'absolute';
