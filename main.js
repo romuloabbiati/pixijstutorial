@@ -5,6 +5,7 @@ import {
   TextStyle,
   Assets,
   Sprite,
+  Container,
 } from 'pixi.js';
 
 import { initDevtools } from '@pixi/devtools';
