@@ -34,6 +34,37 @@ import { initDevtools } from '@pixi/devtools';
       color: 0x00ff00,
     });
 
+    rectangle.on('pointerdown', moveRectangle);
+    
+    rectangle.eventMode = 'static';
+    rectangle.cursor = 'pointer';
+
+    function moveRectangle() {
+      rectangle.position.x -= 10;
+      rectangle.position.y += 10;
+    }
+
+    window.addEventListener('keyup', function(e) {
+      switch(e.key) {
+        case 'ArrowRight': {
+          rectangle.x +=10;
+          break;
+        }
+        case 'ArrowLeft': {
+          rectangle.x -=10;
+          break;
+        }
+        case 'ArrowUp': {
+          rectangle.y -= 10;
+          break;
+        }
+        case 'ArrowDown': {
+          rectangle.y += 10;
+          break;
+        }
+      }
+    });
+
   app.stage.addChild(rectangle);
 
   const line = new Graphics().moveTo(100, 700).lineTo(900, 400).stroke({
