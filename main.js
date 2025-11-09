@@ -127,5 +127,21 @@ import { initDevtools } from '@pixi/devtools';
   sprite.pivot.y = 200;
  
   app.stage.addChild(sprite);
+
+  const circle = new Graphics();
+  app.ticker.add(() => {
+    circle.circle(
+      // Random x-coordinate
+      Math.random() * app.screen.width,
+      // Random y-coordinate
+      Math.random() * app.screen.height,
+      // Circle radius
+      5
+    )
+    .fill({
+      color: 0xffffff
+    });
+    app.stage.addChild(circle);
+  })
   
 })();
