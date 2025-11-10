@@ -9,6 +9,8 @@ import {
   Spritesheet,
   AnimatedSprite,
   TilingSprite,
+  BlurFilter,
+  NoiseFilter
 } from 'pixi.js';
 
 import { initDevtools } from '@pixi/devtools';
@@ -41,6 +43,11 @@ import { initDevtools } from '@pixi/devtools';
     bgSprite.tilePosition.x -= 1;
   });
 
+  bgSprite.filters = [
+    new BlurFilter({ strength: 15 }),
+    new NoiseFilter({ noise: 1 })
+  ];
+
   app.stage.addChild(bgSprite);
-   
+ 
 })();
