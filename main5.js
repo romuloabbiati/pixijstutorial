@@ -15,6 +15,8 @@ import {
 
 import { initDevtools } from '@pixi/devtools';
 
+import { Howl } from 'howler';
+
 (async () => {
   const app = new Application();
   await app.init({
@@ -49,5 +51,13 @@ import { initDevtools } from '@pixi/devtools';
   ];
 
   app.stage.addChild(bgSprite);
+
+  const sound = new Howl({
+    src: ['/Alone in the Chamber.ogg']
+  });
+
+  window.addEventListener('click', function() {
+    sound.play();
+  });
  
 })();
